@@ -62,7 +62,7 @@ var proxy = httpProxy.createProxyServer(options); // See (†)
 ```
 †Unless listen(..) is invoked on the object, this does not create a webserver. See below.
 
-An object will be returned with four values:
+An object will be returned with four methods:
 
 * web `req, res, [options]` (used for proxying regular HTTP(S) requests)
 * ws `req, socket, head, [options]` (used for proxying WS(S) requests)
@@ -328,7 +328,7 @@ proxyServer.listen(8015);
 *  **ws**: true/false, if you want to proxy websockets
 *  **xfwd**: true/false, adds x-forward headers
 *  **secure**: true/false, if you want to verify the SSL Certs
-*  **toProxy**: passes the absolute URL as the `path` (useful for proxying to proxies)
+*  **toProxy**: true/false, passes the absolute URL as the `path` (useful for proxying to proxies)
 *  **prependPath**: true/false, Default: true - specify whether you want to prepend the target's path to the proxy path
 *  **ignorePath**: true/false, Default: false - specify whether you want to ignore the proxy path of the incoming request (note: you will have to append / manually if required).
 *  **localAddress**: Local interface string to bind for outgoing connections
